@@ -83,11 +83,11 @@ fonts:
   - family: Comic Sans MS
     fonts:
       - asset: fonts/COMIC.TTF
-      - asset: fonts/comic-italic.ttf
-        weight: 300
-      - asset: fonts/comic-bold.tff
-        weight: 700
-      - asset: fonts/ComicSansMS3.tff
+#      - asset: fonts/comic-italic.ttf
+#        weight: 300
+#      - asset: fonts/comic-bold.tff
+#        weight: 700
+#      - asset: fonts/ComicSansMS3.tff
   #fonts:
   #  - asset: fonts/TrajanPro.ttf
   #  - asset: fonts/TrajanPro_Bold.ttf
