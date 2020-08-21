@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -118,7 +117,7 @@ class button extends StatelessWidget {
   }
 
   void popupbox(BuildContext context) {
-    var alert = AlertDialog(
+      var alert = AlertDialog(
       title: Text("About that cat"),
       content: Text("That cat is sad but accepting what others are saying "),
     );
