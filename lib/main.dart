@@ -6,6 +6,9 @@ void main()
     debugShowCheckedModeBanner: false,
     title: 'Exploring  lists',
     home: Scaffold(
+      appBar: AppBar(
+        title: Text('This is a app bar and below are lists'),
+      ),
       body: getList(),
     )
   )
@@ -14,14 +17,21 @@ void main()
 Widget getList()
 {
   var listview = ListView(
-    children: 
+    children:
     [
       ListTile(
         leading: Icon(Icons.accessibility),
         title: Text('Accessibility'),
-        subtitle: Text('Icon of acc.'),
-        trailing: Icon(Icons.add_alarm),
-      )
+        subtitle: Text('Accessibility settings'),
+        trailing: Icon(Icons.add),
+      ),
+      ListTile(
+          leading: Icon(Icons.add_alarm),
+          title: Text('Alarm'),
+          subtitle: Text('Tap to add alarms'),
+          trailing: Icon(Icons.add),
+        ),
+
     ],
 
       );
