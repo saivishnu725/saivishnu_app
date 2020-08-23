@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:saivishnu_app/screens/home.dart';
 void main()
@@ -10,6 +12,13 @@ void main()
         title: Text('This is a app bar and below are lists'),
       ),
       body: getList(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+        debugPrint('Clicked');
+        },
+        tooltip: 'Add one more item',
+        child: Icon(Icons.add),
+      ),
     )
   )
   );
