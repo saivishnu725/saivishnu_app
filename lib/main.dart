@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './screens/home.dart ';
+import 'package:saivishnu_app/screens/home.dart';
 void main()
 {
   runApp(MaterialApp(
@@ -14,26 +14,23 @@ void main()
   )
   );
 }
+
+List<String> getElements()
+{
+  var items = List<String>.generate(100, (index) => "Item $index");
+  return items;
+}
+
 Widget getList()
 {
-  var listview = ListView(
-    children:
-    [
-      ListTile(
-        leading: Icon(Icons.accessibility),
-        title: Text('Accessibility'),
-        subtitle: Text('Accessibility settings'),
-        trailing: Icon(Icons.add),
-      ),
-      ListTile(
-          leading: Icon(Icons.add_alarm),
-          title: Text('Alarm'),
-          subtitle: Text('Tap to add alarms'),
-          trailing: Icon(Icons.add),
-        ),
-
-    ],
-
-      );
+  var listitems = getElements();
+  var listview = ListView.builder(
+      itemBuilder: (context,index)
+      {
+        return ListTile(
+          title: Text(listitems[index]),
+        );
+      }
+  );
   return listview;
 }
