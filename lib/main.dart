@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:saivishnu_app/screens/home.dart';
 void main()
@@ -23,10 +21,24 @@ void main()
   )
   );
 }
+void  showSnackBar(BuildContext context , String item) {
+  var snackBar = SnackBar(
+    content: Text('You clicked $item'),
+    action: SnackBarAction(
+        label: "Undo",
+        textColor: Colors.red,
+        onPressed: ()
+        {
+          debugPrint('Performing undo for $item');
+        }
+        ),
 
+  );
+  Scaffold.of(context).showSnackBar(snackBar);
+}
 List<String> getElements()
 {
-  var items = List<String>.generate(100, (index) => "Item $index");
+  var items = List<String>.generate(1000, (index) => "Item $index");
   return items;
 }
 
@@ -37,7 +49,12 @@ Widget getList()
       itemBuilder: (context,index)
       {
         return ListTile(
-          title: Text(listitems[index]),
+          title: Text(listitems[index+1]),
+          onTap: () {
+            debugPrint('Clicked ${listitems[index+1]}');
+            showSnackBar(context,listitems[index+1]);
+          }
+
         );
       }
   );
