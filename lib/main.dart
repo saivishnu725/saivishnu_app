@@ -10,14 +10,35 @@ void main()
         title: Text('This is a app bar and below are lists'),
       ),
       body: getList(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+        debugPrint('Clicked');
+        },
+        tooltip: 'Add one more item',
+        child: Icon(Icons.add),
+      ),
     )
   )
   );
 }
+void  showSnackBar(BuildContext context , String item) {
+  var snackBar = SnackBar(
+    content: Text('You clicked $item'),
+    action: SnackBarAction(
+        label: "Undo",
+        textColor: Colors.red,
+        onPressed: ()
+        {
+          debugPrint('Performing undo for $item');
+        }
+        ),
 
+  );
+  Scaffold.of(context).showSnackBar(snackBar);
+}
 List<String> getElements()
 {
-  var items = List<String>.generate(100, (index) => "Item $index");
+  var items = List<String>.generate(10, (index) => "Item $index");
   return items;
 }
 
@@ -25,10 +46,16 @@ Widget getList()
 {
   var listitems = getElements();
   var listview = ListView.builder(
+      itemCount: listitems.length,
       itemBuilder: (context,index)
       {
         return ListTile(
           title: Text(listitems[index]),
+          onTap: () {
+            debugPrint('Clicked ${listitems[index]}');
+            showSnackBar(context,listitems[index]);
+          }
+
         );
       }
   );
